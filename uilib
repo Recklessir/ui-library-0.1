@@ -1,9 +1,3 @@
---[[
-  UI lib made by bungie#0001
-  
-  - Please do not use this without permission, I am working really hard on this UI to make it perfect and do not have a big 
-    problem with other people using it, please just make sure you message me and ask me before using.
-]]
 
 -- / Locals
 local Workspace = game:GetService("Workspace")
@@ -758,7 +752,7 @@ function library:Introduction()
     xsxLogo.Position = UDim2.new(0.5, 0, 0.5, 0)
     xsxLogo.Size = UDim2.new(0, 448, 0, 150)
     xsxLogo.Visible = true
-    xsxLogo.Image = "https://raw.githubusercontent.com/Recklessir/ui-library-glorp/refs/heads/main/bg_f8f8f8-flat_750x_075_f-pad_750x1000_f8f8f8-removebg-preview.png"
+    xsxLogo.Image = "http://www.roblox.com/asset/?id=130826782256407"
     xsxLogo.ImageColor3 = Color3.fromRGB(159, 115, 255)
     xsxLogo.ImageTransparency = 1
     
