@@ -3052,7 +3052,7 @@ function DiscordLib:Window(text)
 				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
 			end
 			
-			function ChannelContent:Textbox(text, placetext, disapper, callback)
+function ChannelContent:Textbox(text, placetext, disapper, callback)
 				local Textbox = Instance.new("Frame")
 				local TextboxTitle = Instance.new("TextLabel")
 				local TextboxFrameOutline = Instance.new("Frame")
@@ -3074,32 +3074,32 @@ function DiscordLib:Window(text)
 				TextboxTitle.BackgroundTransparency = 1.000
 				TextboxTitle.Position = UDim2.new(0, 5, 0, 0)
 				TextboxTitle.Size = UDim2.new(0, 200, 0, 29)
-				TextboxTitle.Font = Enum.Font.Gotham
+				TextboxTitle.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
 				TextboxTitle.Text = text
-				TextboxTitle.TextColor3 = Color3.fromRGB(127, 131, 137)
+				TextboxTitle.TextColor3 = Color3.fromRGB(95, 220, 140) -- Alien green text
 				TextboxTitle.TextSize = 14.000
 				TextboxTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 				TextboxFrameOutline.Name = "TextboxFrameOutline"
 				TextboxFrameOutline.Parent = TextboxTitle
 				TextboxFrameOutline.AnchorPoint = Vector2.new(0.5, 0.5)
-				TextboxFrameOutline.BackgroundColor3 = Color3.fromRGB(37, 40, 43)
+				TextboxFrameOutline.BackgroundColor3 = Color3.fromRGB(85, 255, 150) -- Bright alien green outline
 				TextboxFrameOutline.Position = UDim2.new(0.988442957, 0, 1.6197437, 0)
 				TextboxFrameOutline.Size = UDim2.new(0, 396, 0, 36)
 
-				TextboxFrameOutlineCorner.CornerRadius = UDim.new(0, 3)
+				TextboxFrameOutlineCorner.CornerRadius = UDim.new(0, 8) -- More rounded for alien look
 				TextboxFrameOutlineCorner.Name = "TextboxFrameOutlineCorner"
 				TextboxFrameOutlineCorner.Parent = TextboxFrameOutline
 
 				TextboxFrame.Name = "TextboxFrame"
 				TextboxFrame.Parent = TextboxTitle
-				TextboxFrame.BackgroundColor3 = Color3.fromRGB(48, 51, 57)
+				TextboxFrame.BackgroundColor3 = Color3.fromRGB(200, 255, 220) -- Light alien mint background
 				TextboxFrame.ClipsDescendants = true
 				TextboxFrame.Position = UDim2.new(0.00999999978, 0, 1.06638527, 0)
 				TextboxFrame.Selectable = true
 				TextboxFrame.Size = UDim2.new(0, 392, 0, 32)
 
-				TextboxFrameCorner.CornerRadius = UDim.new(0, 3)
+				TextboxFrameCorner.CornerRadius = UDim.new(0, 8) -- More rounded for alien look
 				TextboxFrameCorner.Name = "TextboxFrameCorner"
 				TextboxFrameCorner.Parent = TextboxFrame
 
@@ -3108,11 +3108,11 @@ function DiscordLib:Window(text)
 				TextBox.BackgroundTransparency = 1.000
 				TextBox.Position = UDim2.new(0.0178571437, 0, 0, 0)
 				TextBox.Size = UDim2.new(0, 377, 0, 32)
-				TextBox.Font = Enum.Font.Gotham
-				TextBox.PlaceholderColor3 = Color3.fromRGB(91, 95, 101)
+				TextBox.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
+				TextBox.PlaceholderColor3 = Color3.fromRGB(120, 180, 140) -- Alien green placeholder
 				TextBox.PlaceholderText = placetext
 				TextBox.Text = ""
-				TextBox.TextColor3 = Color3.fromRGB(193, 195, 197)
+				TextBox.TextColor3 = Color3.fromRGB(40, 120, 70) -- Dark alien green text
 				TextBox.TextSize = 14.000
 				TextBox.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -3120,7 +3120,7 @@ function DiscordLib:Window(text)
 					TweenService:Create(
 						TextboxFrameOutline,
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 = Color3.fromRGB(114, 137, 228)}
+						{BackgroundColor3 = Color3.fromRGB(130, 255, 200)} -- Brighter alien glow when focused
 					):Play()
 				end)
 				
@@ -3128,7 +3128,7 @@ function DiscordLib:Window(text)
 					TweenService:Create(
 						TextboxFrameOutline,
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 = Color3.fromRGB(37, 40, 43)}
+						{BackgroundColor3 = Color3.fromRGB(85, 255, 150)} -- Return to normal alien green
 					):Play()
 					if ep then
 						if #TextBox.Text > 0 then
@@ -3149,12 +3149,12 @@ function DiscordLib:Window(text)
 
 				Label.Name = "Label"
 				Label.Parent = ChannelHolder
-				Label.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
+				Label.BackgroundColor3 = Color3.fromRGB(180, 240, 200) -- Light alien mint background
 				Label.BorderSizePixel = 0
 				Label.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
 				Label.Size = UDim2.new(0, 401, 0, 30)
 				Label.AutoButtonColor = false
-				Label.Font = Enum.Font.Gotham
+				Label.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
 				Label.Text = ""
 				Label.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Label.TextSize = 14.000
@@ -3165,9 +3165,9 @@ function DiscordLib:Window(text)
 				LabelTitle.BackgroundTransparency = 1.000
 				LabelTitle.Position = UDim2.new(0, 5, 0, 0)
 				LabelTitle.Size = UDim2.new(0, 200, 0, 30)
-				LabelTitle.Font = Enum.Font.Gotham
+				LabelTitle.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
 				LabelTitle.Text = text
-				LabelTitle.TextColor3 = Color3.fromRGB(127, 131, 137)
+				LabelTitle.TextColor3 = Color3.fromRGB(50, 140, 80) -- Dark alien green text
 				LabelTitle.TextSize = 14.000
 				LabelTitle.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -3182,12 +3182,12 @@ function DiscordLib:Window(text)
 
 				Keybind.Name = "Keybind"
 				Keybind.Parent = ChannelHolder
-				Keybind.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
+				Keybind.BackgroundColor3 = Color3.fromRGB(180, 240, 200) -- Light alien mint background
 				Keybind.BorderSizePixel = 0
 				Keybind.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
 				Keybind.Size = UDim2.new(0, 401, 0, 30)
 				Keybind.AutoButtonColor = false
-				Keybind.Font = Enum.Font.Gotham
+				Keybind.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
 				Keybind.Text = ""
 				Keybind.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Keybind.TextSize = 14.000
@@ -3198,9 +3198,9 @@ function DiscordLib:Window(text)
 				KeybindTitle.BackgroundTransparency = 1.000
 				KeybindTitle.Position = UDim2.new(0, 5, 0, 0)
 				KeybindTitle.Size = UDim2.new(0, 200, 0, 30)
-				KeybindTitle.Font = Enum.Font.Gotham
+				KeybindTitle.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
 				KeybindTitle.Text = text
-				KeybindTitle.TextColor3 = Color3.fromRGB(127, 131, 137)
+				KeybindTitle.TextColor3 = Color3.fromRGB(50, 140, 80) -- Dark alien green text
 				KeybindTitle.TextSize = 14.000
 				KeybindTitle.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -3210,17 +3210,19 @@ function DiscordLib:Window(text)
 				KeybindText.BackgroundTransparency = 1.000
 				KeybindText.Position = UDim2.new(0, 316, 0, 0)
 				KeybindText.Size = UDim2.new(0, 85, 0, 30)
-				KeybindText.Font = Enum.Font.Gotham
+				KeybindText.Font = Enum.Font.SourceSans -- Changed to a more futuristic font
 				KeybindText.Text = presetbind.Name
-				KeybindText.TextColor3 = Color3.fromRGB(127, 131, 137)
+				KeybindText.TextColor3 = Color3.fromRGB(95, 220, 140) -- Alien green accent text
 				KeybindText.TextSize = 14.000
 				KeybindText.TextXAlignment = Enum.TextXAlignment.Right
 				
 				Keybind.MouseButton1Click:Connect(function()
 					KeybindText.Text = "..."
+					KeybindText.TextColor3 = Color3.fromRGB(255, 180, 100) -- Orange alien glow while waiting
 					local inputwait = game:GetService("UserInputService").InputBegan:wait()
 					if inputwait.KeyCode.Name ~= "Unknown" then
 						KeybindText.Text = inputwait.KeyCode.Name
+						KeybindText.TextColor3 = Color3.fromRGB(95, 220, 140) -- Return to alien green
 						Key = inputwait.KeyCode.Name
 					end
 				end)
