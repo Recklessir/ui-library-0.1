@@ -531,14 +531,15 @@ function DiscordLib:Window(text)
 	UserPanel.Position = UDim2.new(0.365638763, 0, 0.130666673, 0)
 	UserPanel.Size = UDim2.new(0, 362, 0, 164)
 
-	UserSettingsPad.Name = "UserSettingsPad"
+UserSettingsPad.Name = "UserSettingsPad"
 	UserSettingsPad.Parent = UserPanel
-	UserSettingsPad.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
+	UserSettingsPad.BackgroundColor3 = Color3.fromRGB(180, 240, 200) -- Light alien mint background
 	UserSettingsPad.Position = UDim2.new(0.0331491716, 0, 0.568140388, 0)
 	UserSettingsPad.Size = UDim2.new(0, 337, 0, 56)
 
 	UserSettingsPadCorner.Name = "UserSettingsPadCorner"
 	UserSettingsPadCorner.Parent = UserSettingsPad
+	UserSettingsPadCorner.CornerRadius = UDim.new(0, 8) -- More rounded for alien aesthetic
 
 	UsernameText.Name = "UsernameText"
 	UsernameText.Parent = UserSettingsPad
@@ -546,9 +547,9 @@ function DiscordLib:Window(text)
 	UsernameText.BackgroundTransparency = 1.000
 	UsernameText.Position = UDim2.new(0.0419999994, 0, 0.154714286, 0)
 	UsernameText.Size = UDim2.new(0, 65, 0, 19)
-	UsernameText.Font = Enum.Font.GothamBold
+	UsernameText.Font = Enum.Font.SourceSansBold -- Changed to futuristic font
 	UsernameText.Text = "USERNAME"
-	UsernameText.TextColor3 = Color3.fromRGB(126, 130, 136)
+	UsernameText.TextColor3 = Color3.fromRGB(70, 160, 100) -- Alien green accent
 	UsernameText.TextSize = 11.000
 	UsernameText.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -563,8 +564,8 @@ function DiscordLib:Window(text)
 	UserSettingsPadUser.Parent = UserSettingsPadUserTag
 	UserSettingsPadUser.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	UserSettingsPadUser.BackgroundTransparency = 1.000
-	UserSettingsPadUser.Font = Enum.Font.Gotham
-	UserSettingsPadUser.TextColor3 = Color3.fromRGB(255, 255, 255)
+	UserSettingsPadUser.Font = Enum.Font.SourceSans -- Changed to futuristic font
+	UserSettingsPadUser.TextColor3 = Color3.fromRGB(40, 120, 70) -- Dark alien green for main text
 	UserSettingsPadUser.TextSize = 13.000
 	UserSettingsPadUser.TextXAlignment = Enum.TextXAlignment.Left
 	UserSettingsPadUser.Text = user
@@ -581,20 +582,20 @@ function DiscordLib:Window(text)
 	UserSettingsPadTag.BackgroundTransparency = 1.000
 	UserSettingsPadTag.Position = UDim2.new(0.0419999994, 0, 0.493999988, 0)
 	UserSettingsPadTag.Size = UDim2.new(0, 65, 0, 19)
-	UserSettingsPadTag.Font = Enum.Font.Gotham
+	UserSettingsPadTag.Font = Enum.Font.SourceSans -- Changed to futuristic font
 	UserSettingsPadTag.Text = "#" .. tag
-	UserSettingsPadTag.TextColor3 = Color3.fromRGB(184, 186, 189)
+	UserSettingsPadTag.TextColor3 = Color3.fromRGB(95, 220, 140) -- Bright alien green for tag
 	UserSettingsPadTag.TextSize = 13.000
 	UserSettingsPadTag.TextXAlignment = Enum.TextXAlignment.Left
 
 	EditBtn.Name = "EditBtn"
 	EditBtn.Parent = UserSettingsPad
-	EditBtn.BackgroundColor3 = Color3.fromRGB(116, 127, 141)
+	EditBtn.BackgroundColor3 = Color3.fromRGB(85, 255, 150) -- Bright alien green button
 	EditBtn.Position = UDim2.new(0.797671914, 0, 0.232142866, 0)
 	EditBtn.Size = UDim2.new(0, 55, 0, 30)
-	EditBtn.Font = Enum.Font.Gotham
+	EditBtn.Font = Enum.Font.SourceSans -- Changed to futuristic font
 	EditBtn.Text = "Edit"
-	EditBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	EditBtn.TextColor3 = Color3.fromRGB(20, 60, 40) -- Dark alien green text
 	EditBtn.TextSize = 14.000
 	EditBtn.AutoButtonColor = false
 	
@@ -602,7 +603,7 @@ function DiscordLib:Window(text)
 		TweenService:Create(
 			EditBtn,
 			TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-			{BackgroundColor3 = Color3.fromRGB(104,114,127)}
+			{BackgroundColor3 = Color3.fromRGB(130, 255, 200)} -- Brighter alien glow on hover
 		):Play()
 	end)
 	
@@ -610,17 +611,17 @@ function DiscordLib:Window(text)
 		TweenService:Create(
 			EditBtn,
 			TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-			{BackgroundColor3 = Color3.fromRGB(116, 127, 141)}
+			{BackgroundColor3 = Color3.fromRGB(85, 255, 150)} -- Return to normal alien green
 		):Play()
 	end)
 
-	EditBtnCorner.CornerRadius = UDim.new(0, 3)
+	EditBtnCorner.CornerRadius = UDim.new(0, 8) -- More rounded for alien aesthetic
 	EditBtnCorner.Name = "EditBtnCorner"
 	EditBtnCorner.Parent = EditBtn
 
 	UserPanelUserIcon.Name = "UserPanelUserIcon"
 	UserPanelUserIcon.Parent = UserPanel
-	UserPanelUserIcon.BackgroundColor3 = Color3.fromRGB(31, 33, 36)
+	UserPanelUserIcon.BackgroundColor3 = Color3.fromRGB(160, 230, 180) -- Light alien mint for icon background
 	UserPanelUserIcon.BorderSizePixel = 0
 	UserPanelUserIcon.Position = UDim2.new(0.0340000018, 0, 0.074000001, 0)
 	UserPanelUserIcon.Size = UDim2.new(0, 71, 0, 71)
@@ -640,12 +641,12 @@ function DiscordLib:Window(text)
 	UserPanelUserCircle.BackgroundTransparency = 1.000
 	UserPanelUserCircle.Size = UDim2.new(0, 71, 0, 71)
 	UserPanelUserCircle.Image = "rbxassetid://4031889928"
-	UserPanelUserCircle.ImageColor3 = Color3.fromRGB(47, 49, 54)
+	UserPanelUserCircle.ImageColor3 = Color3.fromRGB(140, 220, 160) -- Light alien green circle
 
 	BlackFrame.Name = "BlackFrame"
 	BlackFrame.Parent = UserPanelUserIcon
-	BlackFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	BlackFrame.BackgroundTransparency = 0.400
+	BlackFrame.BackgroundColor3 = Color3.fromRGB(50, 200, 100) -- Alien green overlay instead of black
+	BlackFrame.BackgroundTransparency = 0.300 -- Slightly less transparent for alien glow
 	BlackFrame.BorderSizePixel = 0
 	BlackFrame.Size = UDim2.new(0, 71, 0, 71)
 	BlackFrame.Visible = false
@@ -659,15 +660,15 @@ function DiscordLib:Window(text)
 	ChangeAvatarText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	ChangeAvatarText.BackgroundTransparency = 1.000
 	ChangeAvatarText.Size = UDim2.new(0, 71, 0, 71)
-	ChangeAvatarText.Font = Enum.Font.GothamBold
-	ChangeAvatarText.Text = "CHAGNE    AVATAR"
+	ChangeAvatarText.Font = Enum.Font.SourceSansBold -- Changed to futuristic font
+	ChangeAvatarText.Text = "CHANGE    AVATAR" -- Fixed typo
 	ChangeAvatarText.TextColor3 = Color3.fromRGB(255, 255, 255)
 	ChangeAvatarText.TextSize = 11.000
 	ChangeAvatarText.TextWrapped = true
 
 	SearchIcoFrame.Name = "SearchIcoFrame"
 	SearchIcoFrame.Parent = UserPanelUserIcon
-	SearchIcoFrame.BackgroundColor3 = Color3.fromRGB(222, 222, 222)
+	SearchIcoFrame.BackgroundColor3 = Color3.fromRGB(95, 220, 140) -- Bright alien green for search icon
 	SearchIcoFrame.Position = UDim2.new(0.657999992, 0, 0, 0)
 	SearchIcoFrame.Size = UDim2.new(0, 20, 0, 20)
 
@@ -682,21 +683,33 @@ function DiscordLib:Window(text)
 	SearchIco.Position = UDim2.new(0.150000006, 0, 0.100000001, 0)
 	SearchIco.Size = UDim2.new(0, 15, 0, 15)
 	SearchIco.Image = "http://www.roblox.com/asset/?id=6034407084"
-	SearchIco.ImageColor3 = Color3.fromRGB(114, 118, 125)
+	SearchIco.ImageColor3 = Color3.fromRGB(20, 60, 40) -- Dark alien green for search icon
 	
 	UserPanelUserIcon.MouseEnter:Connect(function()
 		BlackFrame.Visible = true
+		-- Add subtle glow effect
+		TweenService:Create(
+			UserPanelUserIcon,
+			TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+			{BackgroundColor3 = Color3.fromRGB(180, 255, 200)} -- Brighter alien glow on hover
+		):Play()
 	end)
 	
 	UserPanelUserIcon.MouseLeave:Connect(function()
 		BlackFrame.Visible = false
+		-- Return to normal color
+		TweenService:Create(
+			UserPanelUserIcon,
+			TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+			{BackgroundColor3 = Color3.fromRGB(160, 230, 180)} -- Return to normal alien mint
+		):Play()
 	end)
 	
 	UserPanelUserIcon.MouseButton1Click:Connect(function()
 		local NotificationHolder = Instance.new("TextButton")
 		NotificationHolder.Name = "NotificationHolder"
 		NotificationHolder.Parent = SettingsHolder
-		NotificationHolder.BackgroundColor3 = Color3.fromRGB(22,22,22)
+		NotificationHolder.BackgroundColor3 = Color3.fromRGB(40, 120, 70) -- Dark alien green overlay
 		NotificationHolder.Position = UDim2.new(-0.00881057233, 0, -0.00266666664, 0)
 		NotificationHolder.Size = UDim2.new(0, 687, 0, 375)
 		NotificationHolder.AutoButtonColor = false
@@ -712,7 +725,7 @@ function DiscordLib:Window(text)
 			{BackgroundTransparency = 0.2}
 		):Play()
 
-
+        -- Changed
 
 		local AvatarChange = Instance.new("Frame")
 		local UserChangeCorner = Instance.new("UICorner")
