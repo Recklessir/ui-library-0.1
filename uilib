@@ -46,7 +46,7 @@ do
         end
         animSpeed = settings.smoothDragging and 1e-12 or 0
         if (typeof(theme) == 'string') then
-            if (theme == 'cherry') then          -- dark forest
+            if (theme == '1') then          -- dark forest
                 theme = {
                     Primary = Color3.fromRGB(45, 120, 65);
                     Secondary = Color3.fromRGB(35, 95, 55);
@@ -74,7 +74,7 @@ do
                     ControlGradient1 = Color3.fromRGB(200, 220, 205);
                     ControlGradient2 = Color3.fromRGB(160, 180, 165);
                 }
-            elseif (theme == 'orange') then      -- toxic glow
+            elseif (theme == '2') then      -- toxic glow
                 theme = {
                     Primary = Color3.fromRGB(70, 140, 45);
                     Secondary = Color3.fromRGB(85, 165, 40);
@@ -102,7 +102,7 @@ do
                     ControlGradient1 = Color3.fromRGB(210, 230, 205);
                     ControlGradient2 = Color3.fromRGB(170, 190, 165);
                 }
-            elseif (theme == 'lemon') then       -- acid rain
+            elseif (theme == '3') then       -- acid rain
                 theme = {
                     Primary = Color3.fromRGB(90, 150, 60);
                     Secondary = Color3.fromRGB(110, 170, 50);
@@ -130,7 +130,7 @@ do
                     ControlGradient1 = Color3.fromRGB(215, 235, 210);
                     ControlGradient2 = Color3.fromRGB(175, 195, 170);
                 }
-            elseif (theme == 'lime') then        -- emerald depths
+            elseif (theme == '4') then        -- emerald depths
                 theme = {
                     Primary = Color3.fromRGB(40, 130, 80);
                     Secondary = Color3.fromRGB(50, 150, 90);
@@ -158,7 +158,7 @@ do
                     ControlGradient1 = Color3.fromRGB(210, 230, 220);
                     ControlGradient2 = Color3.fromRGB(170, 190, 180);
                 }
-            elseif (theme == 'raspberry') then   -- xenomorph
+            elseif (theme == '5') then   -- xenomorph
                 theme = {
                     Primary = Color3.fromRGB(55, 125, 75);
                     Secondary = Color3.fromRGB(75, 145, 85);
@@ -186,7 +186,7 @@ do
                     ControlGradient1 = Color3.fromRGB(205, 225, 215);
                     ControlGradient2 = Color3.fromRGB(165, 185, 175);
                 }
-            elseif (theme == 'blueberry') then   -- bio hazard
+            elseif (theme == '6') then   -- bio hazard
                 theme = {
                     Primary = Color3.fromRGB(60, 135, 70);
                     Secondary = Color3.fromRGB(80, 155, 90);
@@ -214,7 +214,7 @@ do
                     ControlGradient1 = Color3.fromRGB(200, 220, 210);
                     ControlGradient2 = Color3.fromRGB(160, 180, 170);
                 }
-            elseif (theme == 'grape') then       -- void essence
+            elseif (theme == '7') then       -- void essence
                 theme = {
                     Primary = Color3.fromRGB(65, 140, 85);
                     Secondary = Color3.fromRGB(85, 160, 95);
@@ -242,7 +242,7 @@ do
                     ControlGradient1 = Color3.fromRGB(195, 215, 205);
                     ControlGradient2 = Color3.fromRGB(155, 175, 165);
                 }
-            elseif (theme == 'watermelon') then  -- legacy red-aqua
+            elseif (theme == '8') then  -- legacy red-aqua
                 theme = nil
             end
         end
