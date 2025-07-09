@@ -1018,7 +1018,7 @@ do
                     local title = Instance.new('TextLabel') do 
                         title.BackgroundTransparency = 1
                         title.BorderSizePixel = 0
-                        title.Font = 'RobotoCondensed'
+                        title.Font = 'Code'
                         title.Name = '#title'
                         title.Position = UDim2.fromOffset(24, 0)
                         title.RichText = true
@@ -1940,7 +1940,7 @@ do
                     local title = Instance.new('TextLabel') do 
                         title.BackgroundTransparency = 1
                         title.BorderSizePixel = 0
-                        title.Font = 'RobotoCondensed'
+                        title.Font = 'Code'
                         title.Name = '#title'
                         title.Position = UDim2.fromOffset(24, 0)
                         title.RichText = true
