@@ -3600,20 +3600,17 @@ local Library do
             }
 
             local Items = { } do
+                -- Tab pill button: auto-width, fixed height, UIListLayout for icon+text
                 Items["Inactive"] = Instances:Create("TextButton", {
                     Parent = Page.Window.Items["LeftTabs"].Instance,
                     Name = "\0",
-                    FontFace = Library.Font,
-                    TextColor3 = FromRGB(0, 0, 0),
-                    BorderColor3 = FromRGB(0, 0, 0),
                     Text = "",
                     AutoButtonColor = false,
                     BackgroundTransparency = 0.18,
                     BorderSizePixel = 0,
                     AutomaticSize = Enum.AutomaticSize.X,
-                    Size = UDim2New(0, 0, 0, 32),
+                    Size = UDim2New(0, 0, 0, 30),
                     ZIndex = 4,
-                    TextSize = 14,
                     BackgroundColor3 = FromRGB(124, 163, 255)
                 })  Items["Inactive"]:AddToTheme({BackgroundColor3 = "Accent"})
 
@@ -3623,42 +3620,9 @@ local Library do
                     CornerRadius = UDimNew(1, 0)
                 })
 
-                Items.Gradient = Instances:Create("UIGradient", {
-                    Parent = Items["Inactive"].Instance,
-                    Name = "\0",
-                    Enabled = false
-                })
-
-                Items["TopLine"] = Instances:Create("Frame", {
-                    Parent = Items["Inactive"].Instance,
-                    Name = "\0",
-                    AnchorPoint = Vector2New(0.5, 1),
-                    Position = UDim2New(0.5, 0, 1, -3),
-                    Size = UDim2New(0, 56, 0, 2),
-                    BorderColor3 = FromRGB(0, 0, 0),
-                    BorderSizePixel = 0,
-                    BackgroundTransparency = 1,
-                    ZIndex = 9,
-                    BackgroundColor3 = Library.Theme.AccentGradient
-                })
-
-                -- Inner container: centers icon+text as a unit
-                local InnerGroup = Instances:Create("Frame", {
-                    Parent = Items["Inactive"].Instance,
-                    Name = "\0",
-                    BackgroundTransparency = 1,
-                    AnchorPoint = Vector2New(0.5, 0.5),
-                    Position = UDim2New(0.5, 0, 0.5, 0),
-                    AutomaticSize = Enum.AutomaticSize.X,
-                    Size = UDim2New(0, 0, 1, 0),
-                    ZIndex = 8,
-                    BorderSizePixel = 0,
-                    BorderColor3 = FromRGB(0, 0, 0),
-                    BackgroundColor3 = FromRGB(0, 0, 0)
-                })
-
+                -- Horizontal layout: icon then label, both centered vertically
                 Instances:Create("UIListLayout", {
-                    Parent = InnerGroup.Instance,
+                    Parent = Items["Inactive"].Instance,
                     Name = "\0",
                     FillDirection = Enum.FillDirection.Horizontal,
                     HorizontalAlignment = Enum.HorizontalAlignment.Center,
@@ -3667,22 +3631,49 @@ local Library do
                     SortOrder = Enum.SortOrder.LayoutOrder
                 })
 
+                -- Side padding for breathing room
+                Instances:Create("UIPadding", {
+                    Parent = Items["Inactive"].Instance,
+                    Name = "\0",
+                    PaddingLeft = UDimNew(0, 12),
+                    PaddingRight = UDimNew(0, 12),
+                })
+
+                Items.Gradient = Instances:Create("UIGradient", {
+                    Parent = Items["Inactive"].Instance,
+                    Name = "\0",
+                    Enabled = false
+                })
+
+                -- Active underline (hidden until selected)
+                Items["TopLine"] = Instances:Create("Frame", {
+                    Parent = Items["Inactive"].Instance,
+                    Name = "\0",
+                    AnchorPoint = Vector2New(0.5, 1),
+                    Position = UDim2New(0.5, 0, 1, -2),
+                    Size = UDim2New(0.55, 0, 0, 2),
+                    BorderColor3 = FromRGB(0, 0, 0),
+                    BorderSizePixel = 0,
+                    BackgroundTransparency = 1,
+                    ZIndex = 9,
+                    BackgroundColor3 = Library.Theme.AccentGradient
+                })
+
+                -- Icon
                 Items["Icon"] = Instances:Create("ImageLabel", {
-                    Parent = InnerGroup.Instance,
+                    Parent = Items["Inactive"].Instance,
                     Name = "\0",
                     ImageColor3 = FromRGB(255, 255, 255),
                     ImageTransparency = 0,
                     BorderColor3 = FromRGB(0, 0, 0),
-                    Size = UDim2New(0, 15, 0, 15),
-                    AnchorPoint = Vector2New(0, 0),
+                    Size = UDim2New(0, 14, 0, 14),
                     Image = "rbxassetid://"..Page.Icon,
                     BackgroundTransparency = 1,
-                    Position = UDim2New(0, 0, 0, 0),
+                    BorderSizePixel = 0,
                     ZIndex = 8,
                     LayoutOrder = 1,
-                    BorderSizePixel = 0,
                     BackgroundColor3 = FromRGB(255, 255, 255)
-                })  --Items["Icon"]:AddToTheme({ImageColor3 = "Accent"})
+                })
 
                 Instances:Create("UIGradient", {
                     Parent = Items["Icon"].Instance,
@@ -3691,8 +3682,9 @@ local Library do
                     Rotation = -115
                 })
 
+                -- Label
                 Items["Text"] = Instances:Create("TextLabel", {
-                    Parent = InnerGroup.Instance,
+                    Parent = Items["Inactive"].Instance,
                     Name = "\0",
                     FontFace = Library.Font,
                     TextColor3 = FromRGB(255, 255, 255),
@@ -3702,22 +3694,13 @@ local Library do
                     BorderColor3 = FromRGB(0, 0, 0),
                     Text = Page.Name,
                     AutomaticSize = Enum.AutomaticSize.X,
-                    AnchorPoint = Vector2New(0, 0),
-                    Size = UDim2New(0, 0, 0, 16),
+                    Size = UDim2New(0, 0, 0, 14),
                     BackgroundTransparency = 1,
-                    Position = UDim2New(0, 0, 0, 0),
                     BorderSizePixel = 0,
                     ZIndex = 8,
                     LayoutOrder = 2,
-                    TextSize = 13,
+                    TextSize = 12,
                     BackgroundColor3 = FromRGB(255, 255, 255)
-                })
-
-                Instances:Create("UIPadding", {
-                    Parent = Items["Inactive"].Instance,
-                    Name = "\0",
-                    PaddingLeft = UDimNew(0, 14),
-                    PaddingRight = UDimNew(0, 14),
                 })
 
                 Items["Page"] = Instances:Create("Frame", {
