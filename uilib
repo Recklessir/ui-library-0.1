@@ -1038,52 +1038,54 @@ local Library do
             FarIntensity = 0,
             FocusDistance = 0,
             InFocusRadius = 1000,
-            NearIntensity = 1,
+            NearIntensity = 0,
             Name = ""
         })
 
+        local LastState = nil
         Library:Connect(RunService.RenderStepped, function()
-            if Window.IsOpen then
-                if Item.Visible then
-                    DepthOfField:Tween(nil, {NearIntensity = 1})
-
-                    Part:Tween(nil, {Transparency = 0.97})
-                    Part:Tween(nil, {Size = Vector3New(1, 1, 1) * 0.01})
-
-                    local Corner0 = BlurItem.AbsolutePosition;
-                    local Corner1 = Corner0 + BlurItem.AbsoluteSize;
-                        
-                    local Ray0 = Camera.ScreenPointToRay(Camera, Corner0.X, Corner0.Y, 1);
-                    local Ray1 = Camera.ScreenPointToRay(Camera, Corner1.X, Corner1.Y, 1);
-
-                    local Origin = Camera.CFrame.Position + Camera.CFrame.LookVector * (0.05 - Camera.NearPlaneZ);
-
-                    local Normal = Camera.CFrame.LookVector;
-
-                    local Position0 = Library:GetCalculatedRayPosition(Origin, Normal, Ray0.Origin, Ray0.Direction)
-                    local Position1 = Library:GetCalculatedRayPosition(Origin, Normal, Ray1.Origin, Ray1.Direction)
-
-                    Position0 = Camera.CFrame:PointToObjectSpace(Position0)
-                    Position1 = Camera.CFrame:PointToObjectSpace(Position1)
-
-                    local Size = Position1 - Position0
-                    local Center = (Position0 + Position1) / 2
-
-                    BlockMesh.Instance.Offset = Center
-                    BlockMesh.Instance.Scale  = Size / 0.0101
-
-                    Part.Instance.CFrame = Camera.CFrame
-                else
-                    DepthOfField:Tween(nil, {NearIntensity = 0})
-
-                    --Part:Tween(nil, {Transparency = 1})
-                    BlockMesh.Instance.Offset = Vector3New(0, 0, 0)
-                    BlockMesh.Instance.Scale  = Vector3New(0, 0, 0)
+            if Item.Visible then
+                if LastState ~= Window.IsOpen then
+                    LastState = Window.IsOpen
+                    local FadeInfo = TweenInfo.new(Library.FadeSpeed, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+                    if Window.IsOpen then
+                        DepthOfField:Tween(FadeInfo, {NearIntensity = 1})
+                        Part:Tween(FadeInfo, {Transparency = 0.97})
+                    else
+                        DepthOfField:Tween(FadeInfo, {NearIntensity = 0})
+                        Part:Tween(FadeInfo, {Transparency = 1})
+                    end
                 end
-            else
-                DepthOfField:Tween(nil, {NearIntensity = 0})
 
-                --Part:Tween(nil, {Transparency = 1})
+                Part:Tween(nil, {Size = Vector3New(1, 1, 1) * 0.01})
+
+                local Corner0 = BlurItem.AbsolutePosition;
+                local Corner1 = Corner0 + BlurItem.AbsoluteSize;
+                    
+                local Ray0 = Camera.ScreenPointToRay(Camera, Corner0.X, Corner0.Y, 1);
+                local Ray1 = Camera.ScreenPointToRay(Camera, Corner1.X, Corner1.Y, 1);
+
+                local Origin = Camera.CFrame.Position + Camera.CFrame.LookVector * (0.05 - Camera.NearPlaneZ);
+
+                local Normal = Camera.CFrame.LookVector;
+
+                local Position0 = Library:GetCalculatedRayPosition(Origin, Normal, Ray0.Origin, Ray0.Direction)
+                local Position1 = Library:GetCalculatedRayPosition(Origin, Normal, Ray1.Origin, Ray1.Direction)
+
+                Position0 = Camera.CFrame:PointToObjectSpace(Position0)
+                Position1 = Camera.CFrame:PointToObjectSpace(Position1)
+
+                local Size = Position1 - Position0
+                local Center = (Position0 + Position1) / 2
+
+                BlockMesh.Instance.Offset = Center
+                BlockMesh.Instance.Scale  = Size / 0.0101
+
+                Part.Instance.CFrame = Camera.CFrame
+            else
+                LastState = nil
+                DepthOfField.Instance.NearIntensity = 0
+                Part.Instance.Transparency = 1
                 BlockMesh.Instance.Offset = Vector3New(0, 0, 0)
                 BlockMesh.Instance.Scale  = Vector3New(0, 0, 0)
             end
