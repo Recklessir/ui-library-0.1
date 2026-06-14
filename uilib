@@ -3175,7 +3175,7 @@ local Library do
                             SettingsItems["Settings"].Instance.Parent = Library.Holder.Instance
 
                             RenderStepped = RunService.RenderStepped:Connect(function()
-                                SettingsItems["Settings"].Instance.Position = UDim2New(0, Items["SettingsIcon"].Instance.AbsolutePosition.X, 0, Items["SettingsIcon"].Instance.AbsolutePosition.Y + Items["SettingsButton"].Instance.AbsoluteSize.Y + 108)
+                                SettingsItems["Settings"].Instance.Position = UDim2New(0, Items["SettingsIcon"].Instance.AbsolutePosition.X + Items["SettingsButton"].Instance.AbsoluteSize.X + 8, 0, Items["SettingsIcon"].Instance.AbsolutePosition.Y - 36)
                                 SettingsItems["Settings"].Instance.Size = UDim2New(0, 325, 0, 230)
                             end)
 
