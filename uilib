@@ -18,6 +18,55 @@ end
 -- Bad executor support (atleast by a bit)
 cloneref = cloneref or function(Object) return Object end
 
+--#region Console Loader
+do
+    local TOTAL_STEPS = 20
+    local BAR_WIDTH   = 20
+
+    local Steps = {
+        "Loading services",
+        "Fetching assets",
+        "Building theme engine",
+        "Registering flags",
+        "Setting up connections",
+        "Creating UI holder",
+        "Loading font",
+        "Building colorpicker",
+        "Building keybind system",
+        "Building dropdown",
+        "Building slider",
+        "Building textbox",
+        "Building toggle",
+        "Building button",
+        "Building notifications",
+        "Setting up config system",
+        "Setting up background effects",
+        "Applying theming",
+        "Finalizing layout",
+        "Done",
+    }
+
+    local function DrawBar(Step)
+        local Filled  = math.floor((Step / TOTAL_STEPS) * BAR_WIDTH)
+        local Empty   = BAR_WIDTH - Filled
+        local Percent = math.floor((Step / TOTAL_STEPS) * 100)
+        local Bar     = string.rep("=", math.max(0, Filled - 1)) .. (Filled > 0 and ">" or "") .. string.rep("-", Empty)
+        return string.format("[%s] %d%%", Bar, Percent)
+    end
+
+    print("\n[ Jank Hub ] Starting up...")
+    print("────────────────────────────────")
+
+    for i, Label in ipairs(Steps) do
+        print(string.format("  Initializing: %-28s %s", Label .. "...", DrawBar(i)))
+        task.wait(0.12)
+    end
+
+    print("────────────────────────────────")
+    print("[ Jank Hub ] Ready!\n")
+end
+--#endregion
+
 --#region Services
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -223,7 +272,7 @@ do
             ["Background"] = Color3.fromRGB(16, 17, 20),
             ["Outline"] = Color3.fromRGB(36, 38, 45),
             ["Border"] = Color3.fromRGB(7, 8, 10),
-            ["Accent"] = Color3.fromRGB(220, 208, 170),
+            ["Accent"] = Color3.fromRGB(152, 188, 255),
             ["Risky"] = Color3.fromRGB(255, 50, 50),
             ["Light Border"] = Color3.fromRGB(12, 8, 12),
             ["Border 2"] = Color3.fromRGB(5, 10, 14),
