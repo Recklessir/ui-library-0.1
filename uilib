@@ -3055,11 +3055,11 @@ local Library do
                         Parent = Library.UnusedHolder.Instance,
                         Name = "\0",
                         BorderColor3 = FromRGB(0, 0, 0),
-                        AnchorPoint = Vector2New(0, 0),
+                        AnchorPoint = Vector2New(1, 0),
                         BorderSizePixel = 0,
-                        Position = UDim2New(0, 0, 0, 0),
-                        Size = UDim2New(0, 285, 0, 159),
-                        ZIndex = 6,
+                        Position = UDim2New(1, -8, 0, 68),
+                        Size = UDim2New(0, 285, 0, 0),
+                        ZIndex = 20,
                         AutomaticSize = Enum.AutomaticSize.Y,
                         BackgroundColor3 = FromRGB(21, 21, 24)
                     }) SettingsItems["Settings"]:AddToTheme({BackgroundColor3 = "Section Background 2"})
@@ -3205,14 +3205,8 @@ local Library do
                             end
 
                             SettingsItems["Settings"].Instance.Visible = true
-                            SettingsItems["Settings"].Instance.Parent = Library.Holder.Instance
-
-                            RenderStepped = RunService.RenderStepped:Connect(function()
-                                local BtnPos = Items["SettingsButton"].Instance.AbsolutePosition
-                                local BtnSize = Items["SettingsButton"].Instance.AbsoluteSize
-                                SettingsItems["Settings"].Instance.Position = UDim2New(0, BtnPos.X - 277 + BtnSize.X, 0, BtnPos.Y + BtnSize.Y + 6)
-                                SettingsItems["Settings"].Instance.Size = UDim2New(0, 285, 0, 0)
-                            end)
+                            SettingsItems["Settings"].Instance.Parent = Items["MainFrame"].Instance
+                            SettingsItems["Settings"].Instance.Position = UDim2New(1, -293, 0, 68)
 
                             for Index, Value in Library.OpenFrames do
                                 if Value ~= Settings then
@@ -3249,8 +3243,8 @@ local Library do
                             end
 
                             if not Value.ClassName:find("UI") then
-                                Value.ZIndex = Settings.IsOpen and 8 or 1
-                                SettingsItems["Text"].Instance.ZIndex = 8
+                                Value.ZIndex = Settings.IsOpen and 20 or 1
+                                SettingsItems["Text"].Instance.ZIndex = 20
                             end
 
                             if type(TransparencyProperty) == "table" then
